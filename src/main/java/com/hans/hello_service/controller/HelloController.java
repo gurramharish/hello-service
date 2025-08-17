@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
+import reactor.util.function.Tuple2;
 
 @RestController
 @RequestMapping("/hello")
@@ -21,7 +22,7 @@ public class HelloController {
   }
 
   @GetMapping()
-  public Mono<Map> sayHello() {
+  public Mono<Tuple2<Map, Map>> sayHello() {
     log.info("In Hello api: {}", "Hi");
     return helloService.capitalizeName("harish kumar");
   }
